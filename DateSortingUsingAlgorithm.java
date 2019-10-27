@@ -41,7 +41,7 @@ public class DateSortingUsingAlgorithm {
 	}
 
 	// TODO Description of constructor.
-	public void dateHashMapDescendingSorted() {
+	public void dateHashMapSortedDescending() {
 		// Creates ArrayList using time from LocalDate.
 		ArrayList<LocalDate> timesSorted = new ArrayList<LocalDate>();
 

@@ -26,7 +26,7 @@ public class Main
 		 * immediately above the line of code.
 		 * Looking at the sample text output will give you a better idea about output. 
 		 */
-		int sectionCount = 0;		
+		int sectionCount = 0;	
 		int allowedValueForSecond = 55;
 		DateTimeOne dateTimeOne = new DateTimeOne();
 		/**
@@ -38,7 +38,7 @@ public class Main
 		
 		/**
 		 * Section 1
-		 * Current value of “Second” will be stored in vlaueOfSecondNow 
+		 * Current value of  will be stored in vlaueOfSecondNow 
 		 * and will print as, "The value of Second now: 58"
 		 * Remember, this is the format only, value should be the current time.
 		 */

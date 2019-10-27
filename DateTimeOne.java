@@ -166,6 +166,34 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		zoneMap.put("CST", currentTimeNOAMPM(-5));
 		zoneMap.put("ZST", currentTimeNOAMPM(-1));
 		zoneMap.put("AST", currentTimeNOAMPM(-1));
+		
+		// Prints out v1 of output.
+		System.out.println("Print Style 1:");
+		for (Map.Entry <String, String> entry : zoneMap.entrySet()) {
+			System.out.println(entry.getKey() + " "
+					+ MDY.format(calendar.getTime()));
+		}
+		
+		// Prints out v2 of output.
+		System.out.println("Print Style 2:");
+		for (Map.Entry <String, String> entry : zoneMap.entrySet()) {
+			System.out.println(MDY.format(calendar.getTime()) + " "
+					+ entry.getValue());
+		}
+		
+		// Prints out v3 of output.
+		System.out.println("Print Style 3: Final Sorted Array");
+		for (Map.Entry <String, String> entry : zoneMap.entrySet()) {
+			System.out.println(YMD.format(calendar.getTime()) + "T"
+					+ entry.getValue());
+		}
+		
+	}
+
+	@Override
+	void dateTimeOfOtherCity() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -36,10 +36,12 @@ public class DateTimeTwo {
 	}
 
 	// TODO Constructor description.
-	private void loadDates() {
+	private void loadDates() throws IOException {
 		// Reads in dates.txt file.
-		BufferedReader reader = new BufferedReader(
-				new FileReader("C:\\Users\\hunte\\eclipse-workspace\\Project3\\src\\Dates.txt"));
+		
+		String file = ("Dates.txt");
+		
+		BufferedReader reader = new BufferedReader(new FileReader(file));
 
 		// TODO Description.
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M.dd.yyyy");
@@ -62,11 +64,11 @@ public class DateTimeTwo {
 
 		// TODO Description of gregCal 10.
 		Calendar tenthDay = new GregorianCalendar();
-		tenthDay.set(now.YEAR, now.MONTH, 10);
+		tenthDay.set(Calendar.YEAR, Calendar.MONTH, 10);
 
 		// TODO Description of gregCal 18.
 		Calendar eighteenthDay = new GregorianCalendar();
-		eighteenthDay.set(now.YEAR, now.MONTH, 18);
+		eighteenthDay.set(Calendar.YEAR, Calendar.MONTH, 18);
 
 		// TODO Description.
 		SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
@@ -107,7 +109,7 @@ public class DateTimeTwo {
 						+ testPeriod.getMonths() + " months, and "
 						+ testPeriod.getDays() + " days.");
 			} else {
-				// Prints output if not a leap year.
+				// Prints output if not leap year.
 				System.out.println(entry.getKey().getYear()
 						+ " is not a leap year, and Difference: "
 						+ testPeriod.getYears() + " years, "

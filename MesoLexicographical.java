@@ -43,6 +43,7 @@ public class MesoLexicographical extends MesoSortedAbstract {
 			}
 		}
 		
+		// TODO Description of for loop.
 		for (int i = 0; i < sortedStations.size(); i++) {
 			sorted.put(sortedStations.get(i), unsorted.get(sortedStations.get(i)));
 		}

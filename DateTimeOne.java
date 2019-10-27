@@ -1,6 +1,8 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class DateTimeOne extends MesoDateTimeOneAbstract {
 	// Constant variables.
@@ -15,7 +17,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		return seconds % 60;
 	}
 
-	int converTime(int time) {
+	int convertTime(int time) {
 		return time + 24;
 	}
 
@@ -67,7 +69,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		
 		//TODO
 		if (getCurrentHours() <= Math.abs(difference) && difference < 0) {
-			if (converTime(getCurrentHours()) + difference > 12) {
+			if (convertTime(getCurrentHours()) + difference > 12) {
 				return convertTime(getCurrentHours()) 
 						+ difference + ":" + minutes + " PM";
 			} else {
@@ -102,6 +104,53 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 	String dateTimeNowString(int difference) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy");
 		Calendar calendar = new GregorianCalendar();
+		
+		return dateFormat.format(calendar.getTime()) + " "
+				+ currentTimeNOAMPM(difference);
+	}
+	
+	String currentTimeNOAMPM(int difference) {
+		String minutes = String.valueOf(getCurrentMinutes());
+		if (getCurrentMinutes() < 10) {
+			minutes = "0" + minutes;
+		} if (getCurrentHours() <= Math.abs(difference) && difference < 0) {
+			return convertTime(getCurrentHours()) + difference
+					+ ":" + minutes;
+		} else {
+			return getCurrentHours() + difference + ":" + minutes;
+		}
+	}
+	
+	@Override
+	void sleepForFiveSec() {
+		int currentSeconds = getValueOfSecond();
+		
+		// DEsc.
+		while (getValueOfSecond() < currentSeconds + 5) {
+			;
+		}
+	}
+	
+	@Override 
+	void dateTimeDifferentZone() {
+		LinkedHashMap <String, Integer> zoneMap = new LinkedHashMap <String, Integer>();
+		
+		// Desc.
+		zoneMap.put("GMT",  0);
+		zoneMap.put("BST", 6);
+		zoneMap.put("CST", -5);
+		
+		// Desc.
+		for (Map.Entry <String, Integer> entry : zoneMap.entrySet()) {
+			System.out.println(entry.getKey() + ": "
+					+ dateTimeNowString(entry.getValue()));
+		}
+	}
+	
+	@Override
+	void timeZoneHashMap() {
+		SimpleDateFormat MDY = new SimpleDateFormat("M/dd/yyyy");
+		SimpleDateFormat YMD = new SimpleDateFormat("yyyy-M-dd");
 	}
 	
 }

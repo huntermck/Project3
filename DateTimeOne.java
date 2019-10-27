@@ -147,10 +147,25 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		}
 	}
 	
+	//DESC.
 	@Override
 	void timeZoneHashMap() {
+		// Creates the two simpledateformat objects.
 		SimpleDateFormat MDY = new SimpleDateFormat("M/dd/yyyy");
 		SimpleDateFormat YMD = new SimpleDateFormat("yyyy-M-dd");
+		
+		// Created Gregorian Calendar.
+		Calendar calendar = new GregorianCalendar();
+		
+		// Creates linkedhashmap zoneMap.
+		LinkedHashMap <String, String> zoneMap = new LinkedHashMap <String, String>();
+	
+		// Creates zoneMaps of various time zones, and adjusts appropriately for them.
+		zoneMap.put("GMT", currentTimeNOAMPM(0));
+		zoneMap.put("BST", currentTimeNOAMPM(6));
+		zoneMap.put("CST", currentTimeNOAMPM(-5));
+		zoneMap.put("ZST", currentTimeNOAMPM(-1));
+		zoneMap.put("AST", currentTimeNOAMPM(-1));
 	}
 	
 }

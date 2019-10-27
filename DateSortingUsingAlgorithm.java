@@ -77,5 +77,41 @@ public class DateSortingUsingAlgorithm {
 		}
 
 	}
+	
+	public void dateHashMapSorted() {
+		// Creates ArrayList of TimesSorted.
+		ArrayList <LocalDate> timesSorted = new ArrayList <LocalDate>();
+		
+		//TODO
+		for (Map.Entry <LocalDate, Integer> entry : stations.entrySet()) {
+			timesSorted.add(entry.getKey());
+		}
+		
+		//TODO
+		for (int i = 0; i < timesSorted.size(); i++) {
+			for (int j = i + 1; j < timesSorted.size(); i++) {
+				if (timesSorted.get(i).getYear() < timesSorted.get(j).getYear()) {
+					//TODO
+					LocalDate placeHolder = timesSorted.get(i);
+					timesSorted.set(i, timesSorted.get(j));
+					timesSorted.set(j, placeHolder);
+				} else if(timesSorted.get(i).getYear()
+						== timesSorted.get(j).getYear()) {
+					if (timesSorted.get(i).getMonthValue()
+							< timesSorted.get(j).getMonthValue()) {
+						LocalDate placeHolder = timesSorted.get(i);
+						timesSorted.set(i, timesSorted.get(j));
+						timesSorted.set(j, placeHolder);
+					}
+				}
+			}
+		}
+		
+		// returns toString of timesSorted.
+		for (int i = 0; i < timesSorted.size(); i++) {
+			System.out.println(timesSorted.get(i).toString());
+		}
+		
+	}
 
 }

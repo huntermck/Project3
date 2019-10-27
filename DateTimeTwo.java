@@ -35,25 +35,32 @@ public class DateTimeTwo {
 		// Reads in dates.txt file.
 		BufferedReader reader = new BufferedReader(
 				new FileReader("C:\\Users\\hunte\\eclipse-workspace\\Project3\\src\\Dates.txt"));
-		
-		//TODO Description.
+
+		// TODO Description.
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M.dd.yyyy");
-		
-		//TODO Description of String and i variable. And while loop.
+
+		// TODO Description of String and i variable. And while loop.
 		String line = reader.readLine();
 		int i = 1;
-		while(line != null) {
+		while (line != null) {
 			dates.put(LocalDate.parse(line, dateFormat), i);
 			line = reader.readLine();
 			++i;
 		}
-		
+
 		reader.close();
 	}
-	
+
+	//TODO Description of constructor.
 	public void dateHashMap() {
-		for (Map.Entry <LocalDate, Integer> entry : dates.entrySet()) {
-			
+		//TODO Description of for loop.
+		for (Map.Entry<LocalDate, Integer> entry : dates.entrySet()) {
+			System.out.println(entry.getKey().toString() + ":" + entry.getValue());
 		}
 	}
+	
+	public void dateHashMapSorted() {
+		
+	}
+	
 }

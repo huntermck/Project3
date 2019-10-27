@@ -1,9 +1,13 @@
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.LinkedHashMap;
 
 public class DateSortingUsingAlgorithm {
+	// Private variables initilization.
+	private LinkedHashMap <LocalDate, Integer> stations = new LinkedHashMap <LocalDate, Integer>();
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	//TODO
+	public DateSortingUsingAlgorithm() throws IOException {
 
 	}
-
 }

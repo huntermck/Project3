@@ -42,5 +42,12 @@ public class MesoLexicographical extends MesoSortedAbstract {
 				}
 			}
 		}
+		
+		for (int i = 0; i < sortedStations.size(); i++) {
+			sorted.put(sortedStations.get(i), unsorted.get(sortedStations.get(i)));
+		}
+		
+		return sorted;
+		
 	}
 }

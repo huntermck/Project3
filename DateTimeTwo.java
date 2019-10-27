@@ -2,14 +2,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class DateTimeTwo {
 	// Private variable initialization.
-	private LinkedHashMap <LocalDate, Integer> dates = new LinkedHashMap <LocalDate, Integer>();
-	private LinkedHashMap <Integer, String> intToDay = new LinkedHashMap <Integer, String>();
+	private LinkedHashMap<LocalDate, Integer> dates = new LinkedHashMap<LocalDate, Integer>();
+	private LinkedHashMap<Integer, String> intToDay = new LinkedHashMap<Integer, String>();
 
-	//TODO Description for constructor.
+	// TODO Description for constructor.
 	public DateTimeTwo() throws IOException {
 		intToDay.put(1, "SUNDAY");
 
@@ -28,9 +30,30 @@ public class DateTimeTwo {
 		loadDates();
 	}
 
-	//TODO Constructor description.
+	// TODO Constructor description.
 	private void loadDates() {
+		// Reads in dates.txt file.
 		BufferedReader reader = new BufferedReader(
 				new FileReader("C:\\Users\\hunte\\eclipse-workspace\\Project3\\src\\Dates.txt"));
+		
+		//TODO Description.
+		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("M.dd.yyyy");
+		
+		//TODO Description of String and i variable. And while loop.
+		String line = reader.readLine();
+		int i = 1;
+		while(line != null) {
+			dates.put(LocalDate.parse(line, dateFormat), i);
+			line = reader.readLine();
+			++i;
+		}
+		
+		reader.close();
+	}
+	
+	public void dateHashMap() {
+		for (Map.Entry <LocalDate, Integer> entry : dates.entrySet()) {
+			
+		}
 	}
 }

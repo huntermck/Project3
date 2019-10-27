@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -52,12 +54,24 @@ public class DateTimeTwo {
 		reader.close();
 	}
 
+	// TODO Description.
+	public void daysOfCurrentMonth() {
+		Calendar now = Calendar.getInstance();
+
+		// TODO Description of gregCal 10.
+		Calendar tenthDay = new GregorianCalendar();
+		tenthDay.set(now.YEAR, now.MONTH, 10);
+
+		// TODO Description of gregCal 18.
+		Calendar eighteenthDay = new GregorianCalendar();
+		eighteenthDay.set(now.YEAR, now.MONTH, 18);
+	}
+
 	// TODO Description of constructor.
 	public void dateHashMap() {
 		// TODO Description of for loop.
 		for (Map.Entry<LocalDate, Integer> entry : dates.entrySet()) {
-			System.out.println(entry.getKey().toString() 
-					+ ":" + entry.getValue());
+			System.out.println(entry.getKey().toString() + ":" + entry.getValue());
 		}
 	}
 
@@ -82,10 +96,9 @@ public class DateTimeTwo {
 			}
 		}
 
-		//TODO For loop description.
+		// TODO For loop description.
 		for (int i = 0; i < sortedDates.size(); i++) {
-			System.out.println(sortedDates.get(i).toString() 
-					+ ":" + dates.get(sortedDates.get(i)));
+			System.out.println(sortedDates.get(i).toString() + ":" + dates.get(sortedDates.get(i)));
 		}
 
 	}

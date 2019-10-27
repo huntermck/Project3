@@ -56,29 +56,38 @@ public class DateTimeTwo {
 	public void dateHashMap() {
 		// TODO Description of for loop.
 		for (Map.Entry<LocalDate, Integer> entry : dates.entrySet()) {
-			System.out.println(entry.getKey().toString() + ":" + entry.getValue());
+			System.out.println(entry.getKey().toString() 
+					+ ":" + entry.getValue());
 		}
 	}
 
 	// TODO Description of constructor.
 	public void dateHashMapSorted() {
-		ArrayList <LocalDate> sortedDates = new ArrayList <LocalDate>();
+		ArrayList<LocalDate> sortedDates = new ArrayList<LocalDate>();
 		LocalDate lowest = LocalDate.now();
-		
-		//TODO For loop description.
-		for (Map.Entry <LocalDate, Integer> entry : dates.entrySet()) {
+
+		// TODO For loop description.
+		for (Map.Entry<LocalDate, Integer> entry : dates.entrySet()) {
 			sortedDates.add(entry.getKey());
 		}
-		
-		//TODO For loop description.
+
+		// TODO For loop description.
 		for (int i = 0; i < sortedDates.size(); i++) {
 			for (int j = i + 1; j < sortedDates.size(); j++) {
-				if(sortedDates.get(i).getYear() > sortedDates.get(j).getYear()) {
+				if (sortedDates.get(i).getYear() > sortedDates.get(j).getYear()) {
 					LocalDate temp = sortedDates.get(i);
+					sortedDates.set(i, sortedDates.get(j));
+					sortedDates.set(j, temp);
 				}
 			}
 		}
-		
+
+		//TODO For loop description.
+		for (int i = 0; i < sortedDates.size(); i++) {
+			System.out.println(sortedDates.get(i).toString() 
+					+ ":" + dates.get(sortedDates.get(i)));
+		}
+
 	}
 
 }

@@ -62,10 +62,18 @@ public class DateSortingUsingAlgorithm {
 						== timesSorted.get(j).getYear()) {
 					if (timesSorted.get(i).getMonthValue()
 							> timesSorted.get(j).getMonthValue()) {
-						
+						// Stores value temprarily.
+						LocalDate placeHolder = timesSorted.get(i);
+						timesSorted.set(i, timesSorted.get(j));
+						timesSorted.set(j, placeHolder);
 					}
 				}
 			}
+		}
+		
+		//TODO Description for for loop.
+		for (int i = 0; i < timesSorted.size(); i++) {
+			System.out.println(timesSorted.get(i).toString());
 		}
 
 	}

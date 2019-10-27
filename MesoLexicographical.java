@@ -20,9 +20,20 @@ public class MesoLexicographical extends MesoSortedAbstract
 		}
 	}
 	
+	//TODO Description of constructor.
 	@Override
 	public Map <String, Integer> sortedMap(HashMap <String, Integer> unsorted) {
 		ArrayList<String> sortedStations = new ArrayList<String>();
-		return unsorted;
+		HashMap<String, Integer> sorted = new HashMap<String, Integer>();
+		
+		//TODO Description of for loop.
+		for (Map.Entry <String, Integer> entry: unsorted.entrySet()) {
+			sortedStations.add(entry.getKey());
+		}
+		
+		//TODO Description of for loop.
+		for(int i = 0; i < sortedStations.size(); i++) {
+			
+		}
 	}
 }

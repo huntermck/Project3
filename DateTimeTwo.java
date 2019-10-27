@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
@@ -7,6 +9,7 @@ public class DateTimeTwo {
 	private LinkedHashMap <LocalDate, Integer> dates = new LinkedHashMap <LocalDate, Integer>();
 	private LinkedHashMap <Integer, String> intToDay = new LinkedHashMap <Integer, String>();
 
+	//TODO Description for constructor.
 	public DateTimeTwo() throws IOException {
 		intToDay.put(1, "SUNDAY");
 
@@ -23,5 +26,11 @@ public class DateTimeTwo {
 		intToDay.put(7, "SATURDAY");
 
 		loadDates();
+	}
+
+	//TODO Constructor description.
+	private void loadDates() {
+		BufferedReader reader = new BufferedReader(
+				new FileReader("C:\\Users\\hunte\\eclipse-workspace\\Project3\\src\\Dates.txt"));
 	}
 }

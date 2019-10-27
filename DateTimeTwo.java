@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -71,27 +72,50 @@ public class DateTimeTwo {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
 
 		// TODO Desc.
-		System.out.println("The tenth day of this month is " 
-		+ intToDay.get(Calendar.DAY_OF_WEEK)
-		+ " and eighteenth is " 
-		+ intToDay.get(eighteenthDay.get(Calendar.DAY_OF_WEEK)));
+		System.out.println("The tenth day of this month is " + intToDay.get(Calendar.DAY_OF_WEEK)
+				+ " and eighteenth is " + intToDay.get(eighteenthDay.get(Calendar.DAY_OF_WEEK)));
 	}
-	
-	//TODO Description of constr.
+
+	// TODO Description of constr.
 	public void daysOfAnyMonth(int month, int year) {
-		//TODO Desc of gregCal.
+		// TODO Desc of gregCal.
 		Calendar fifteenthDay = new GregorianCalendar();
 		fifteenthDay.set(year, month - 1, 15);
 
-		//TODO Desc for data chunk.
+		// TODO Desc for data chunk.
 		Calendar lastDay = new GregorianCalendar();
 		lastDay.set(year, month - 1, fifteenthDay.getActualMaximum(Calendar.DAY_OF_MONTH));
 
 		// Prints out necessary output.
-		System.out.println("For the year (" 
-		+ year + ") and month (" + month + "), the fifteenth day is " 
-		+ intToDay.get(fifteenthDay.get(Calendar.DAY_OF_WEEK)) 
-		+ " and the last day is " + intToDay.get(lastDay.get(Calendar.DAY_OF_WEEK)));
+		System.out.println("For the year (" + year + ") and month (" + month + "), the fifteenth day is "
+				+ intToDay.get(fifteenthDay.get(Calendar.DAY_OF_WEEK)) + " and the last day is "
+				+ intToDay.get(lastDay.get(Calendar.DAY_OF_WEEK)));
+	}
+
+	// TODO Desc of constr.
+	public void compareYear() throws IOException {
+		// TODO of for loop.
+		for (Map.Entry<LocalDate, Integer> entry : dates.entrySet()) {
+			Period testPeriod = Period.between(entry.getKey(), LocalDate.now());
+			
+			//TODO desc of if statement.
+			if (entry.getKey().getYear() % 4 == 0) {
+				// Prints output if leap year.
+				System.out.println(entry.getKey().getYear()
+						+ " is a leap year, and Difference: "
+						+ testPeriod.getYears() + " years, "
+						+ testPeriod.getMonths() + " months, and "
+						+ testPeriod.getDays() + " days.");
+			} else {
+				// Prints output if not a leap year.
+				System.out.println(entry.getKey().getYear()
+						+ " is not a leap year, and Difference: "
+						+ testPeriod.getYears() + " years, "
+						+ testPeriod.getMonths() + " months, and "
+						+ testPeriod.getDays() + " days.");
+			}
+			
+		}
 	}
 
 	// TODO Description of constructor.

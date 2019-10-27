@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class DateTimeTwo {
 		reader.close();
 	}
 
-	// TODO Description.
+	// TODO Description of constr.
 	public void daysOfCurrentMonth() {
 		Calendar now = Calendar.getInstance();
 
@@ -65,6 +66,32 @@ public class DateTimeTwo {
 		// TODO Description of gregCal 18.
 		Calendar eighteenthDay = new GregorianCalendar();
 		eighteenthDay.set(now.YEAR, now.MONTH, 18);
+
+		// TODO Description.
+		SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE");
+
+		// TODO Desc.
+		System.out.println("The tenth day of this month is " 
+		+ intToDay.get(Calendar.DAY_OF_WEEK)
+		+ " and eighteenth is " 
+		+ intToDay.get(eighteenthDay.get(Calendar.DAY_OF_WEEK)));
+	}
+	
+	//TODO Description of constr.
+	public void daysOfAnyMonth(int month, int year) {
+		//TODO Desc of gregCal.
+		Calendar fifteenthDay = new GregorianCalendar();
+		fifteenthDay.set(year, month - 1, 15);
+
+		//TODO Desc for data chunk.
+		Calendar lastDay = new GregorianCalendar();
+		lastDay.set(year, month - 1, fifteenthDay.getActualMaximum(Calendar.DAY_OF_MONTH));
+
+		// Prints out necessary output.
+		System.out.println("For the year (" 
+		+ year + ") and month (" + month + "), the fifteenth day is " 
+		+ intToDay.get(fifteenthDay.get(Calendar.DAY_OF_WEEK)) 
+		+ " and the last day is " + intToDay.get(lastDay.get(Calendar.DAY_OF_WEEK)));
 	}
 
 	// TODO Description of constructor.
